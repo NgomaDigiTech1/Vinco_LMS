@@ -46,7 +46,7 @@ class CategoryRepository implements CategoryRepositoryInterface
         $faculty = Category::query()
             ->create([
                 'name' => $attributes->input('name'),
-                'institution_id'=> $this->institution()->institution_id,
+                'institution_id'=> \Auth::user()->institution_id,
                 'description' => $attributes->input('description'),
             ]);
         $flash->addSuccess('A new Category as added with successfully');
@@ -59,7 +59,7 @@ class CategoryRepository implements CategoryRepositoryInterface
         $category = $this->showCategory(key: $key);
         $category->update([
             'name' => $attributes->input('name'),
-            'institution_id'=> $this->institution()->institution_id,
+            'institution_id'=> \Auth::user()->institution_id,
             'description' => $attributes->input('description'),
         ]);
         $flash->addSuccess('The Category as updated with successfully');

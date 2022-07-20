@@ -40,9 +40,6 @@
                         <thead>
                             <tr class="nk-tb-item nk-tb-head text-center">
                                 <th class="nk-tb-col">
-                                    <span>IMAGES</span>
-                                </th>
-                                <th class="nk-tb-col">
                                     <span>NAME</span>
                                 </th>
                                 <th class="nk-tb-col">
@@ -65,17 +62,6 @@
                         <tbody>
                             @foreach($courses as $course)
                                 <tr class="nk-tb-item text-center">
-                                    <td class="nk-tb-col">
-                                        <span class="tb-lead">
-                                            <img
-                                                src="{{ asset('storage/'.$course->images) }}"
-                                                alt="{{ ucfirst(substr($course->name, 0, 20)) ?? "" }}"
-                                                class="img-fluid rounded-circle"
-                                                width="20%"
-                                                height="20%"
-                                            >
-                                        </span>
-                                    </td>
                                     <td class="nk-tb-col">
                                         <span class="tb-lead">
                                             <h6 class="title">{{ ucfirst(substr($course->name, 0, 20)) ?? "" }}...</h6>

@@ -64,7 +64,7 @@
                                 <tr class="nk-tb-item text-center">
                                     <td class="nk-tb-col">
                                         <span class="tb-lead">
-                                            <h6 class="title">{{ ucfirst(substr($course->name, 0, 20)) ?? "" }}...</h6>
+                                            <h6 class="title">{{ ucfirst(substr($course->name, 0, 20)) ?? "" }}</h6>
                                         </span>
                                     </td>
                                     <td class="nk-tb-col">

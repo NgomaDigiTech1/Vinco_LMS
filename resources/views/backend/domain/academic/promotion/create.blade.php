@@ -75,11 +75,7 @@
                                                 </div>
                                             </div>
                                             @php
-                                                $professor = \App\Models\Professor::where('user_id', Auth::user()->id)
-                                                    ->first();
-                                                $users = \App\Models\User::where('id', $professor->user_id)->first();
-                                                $institution = $professor->institution_id;
-                                                $academic = \App\Models\AcademicYear::where('institution_id', $institution)->get();
+                                                $academic = \App\Models\AcademicYear::where('institution_id', Auth::user()->institution_id)->get();
                                                 $filiaire = \App\Models\Subsidiary::query()
                                                         ->select([
                                                             'id',

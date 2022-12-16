@@ -35,61 +35,7 @@
                     <div class="card">
                         <div class="card-inner">
                             <div class="row justify-content-center">
-                                <div class="col-md-6">
-                                    @if ($errors->any())
-                                        <div class="alert alert-danger">
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    @endif
-
-                                    <form action="{{ route('admins.academic.session.update', $academic->id) }}" method="post" class="form-validate" novalidate="novalidate">
-                                        @csrf
-                                        @method('PUT')
-                                        <div class="row g-gs">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label class="form-label" for="startDate">Annee debut</label>
-                                                    <div class="form-control-wrap">
-                                                        <input
-                                                            type="text"
-                                                            class="form-control date-picker-alt @error('startDate') error @enderror"
-                                                            id="startDate"
-                                                            name="startDate"
-                                                            value="{{ old('startDate' ) ?? $academic->start_date }}"
-                                                            data-date-format="yyyy-mm-dd"
-                                                            placeholder="Enter Start Date"
-                                                            required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label class="form-label" for="endDate">Annee de fin</label>
-                                                    <div class="form-control-wrap">
-                                                        <input
-                                                            type="text"
-                                                            class="form-control date-picker-alt @error('endDate') error @enderror"
-                                                            id="endDate"
-                                                            name="endDate"
-                                                            value="{{ old('endDate' ) ?? $academic->end_date }}"
-                                                            data-date-format="yyyy-mm-dd"
-                                                            placeholder="Enter End Date"
-                                                            required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <button type="submit" class="btn btn-md btn-primary">Save</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                                <livewire:backend.sessions.edit-session :academic="$academic" />
                             </div>
                         </div>
                     </div>
@@ -97,4 +43,17 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        let start_date = document.querySelector('#start_date').flatpickr({
+            minDate: "2020-01",
+            dateFormat: 'Y-m-d',
+        })
+        let end_date = document.querySelector('#end_date').flatpickr({
+            minDate: "2020-01",
+            dateFormat: 'Y-m-d'
+        })
+    </script>
 @endsection

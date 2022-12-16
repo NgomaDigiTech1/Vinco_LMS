@@ -35,3 +35,8 @@
 - [ ]  Publication des Resultat
 - [ ]  Systeme de messageries instatanee pour communication professeurs etudiants
 - [ ]  Un PWA et SP pour qu'il soit installable sur mobile
+- [ ]  Ajouter un mode paiement DPO et PayFast
+- [ ]  Cree des API pour le systeme de paiement 
+- [ ]  Affilier les etudiant a un cours
+- [ ]  Intégré le système de book d'un ou plusieurs cours
+- [ ]  Créer un système de paiement de cours particuliers ou groupes des cours

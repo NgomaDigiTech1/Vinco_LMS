@@ -15,10 +15,10 @@ final class ProfessorApiController
         ProfessorApiRequest $apiRequest,
         ProfessorApiRepository $repository
     ): JsonResponse {
-        $campus = $repository->getProfessor($apiRequest);
+        $professors = $repository->getProfessor($apiRequest);
 
         return response()->json([
-            'professors' => $campus,
+            'professors' => $professors,
             'status' => 'success',
         ], Response::HTTP_OK);
     }

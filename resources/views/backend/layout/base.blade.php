@@ -11,6 +11,8 @@
     <title>LMS | @yield('title')</title>
     <link rel="stylesheet" href="{{ asset('assets/admins/css/css/dashlite41fe.css') }}" data-turbolinks-track="true">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" rel="stylesheet" data-turbolinks-track="true">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
     <style>
         body {
@@ -22,6 +24,7 @@
     </style>
 
     @yield('styles')
+    @livewireStyles
 </head>
 <body class="nk-body bg-lighter npc-general has-sidebar">
     <div class="nk-app-root">
@@ -42,5 +45,6 @@
     @yield('scripts')
 
     @include('sweetalert::alert')
+@livewireScripts
 </body>
 </html>

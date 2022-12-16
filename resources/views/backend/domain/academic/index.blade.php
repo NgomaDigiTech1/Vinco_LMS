@@ -33,43 +33,31 @@
                 </div>
                 <div class="nk-block">
                     <div class="row g-gs">
-                        @forelse($academics as $academic)
-                            <div class="col-sm-6 col-lg-3 col-xxl-3">
-                                <div class="card h-100">
-                                    <div class="card-inner">
-                                        <div class="text-center font-weight-bold mt-3">
-                                            <h6>
-                                                {{ \Carbon\Carbon::createFromFormat('Y-m-d', $academic->start_date)->format('M Y') }}
-                                                -
-                                                {{ \Carbon\Carbon::createFromFormat('Y-m-d', $academic->end_date)->format('M Y') }}
-                                            </h6>
-                                        </div>
-
-                                        <div class="d-flex justify-content-center mt-3 pb-3">
-                                            @can('academic-year-update')
-                                                <a class="-mr-2 btn btn-dim btn-primary ml-2" href="{{ route('admins.academic.session.edit', $academic->id) }}">
-                                                    <em class="icon ni ni-edit"></em>
-                                                </a>
-                                            @endcan
-
-                                            @can('academic-year-delete')
-                                                <form action="{{ route('admins.academic.session.destroy', $academic->id) }}" method="POST" onsubmit="return confirm('Voulez vous supprimer');">
-                                                    @method('DELETE')
-                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    <button type="submit" class="btn btn-dim btn-danger">
-                                                        <em class="icon ni ni-trash"></em>
-                                                    </button>
-                                                </form>
-                                            @endcan
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @empty
-                            <div class="text-center mt-4 text-azure">
-                                Pas des sessions disponible
-                            </div>
-                        @endforelse
+                        <div class="nk-block">
+                            <table class="datatable-init nowrap nk-tb-list is-separate" data-auto-responsive="false">
+                                <thead>
+                                <tr class="nk-tb-item nk-tb-head  text-center">
+                                    <th class="nk-tb-col">
+                                        <span>ID</span>
+                                    </th>
+                                    <th class="nk-tb-col">
+                                        <span>Debut d'annee</span>
+                                    </th>
+                                    <th class="nk-tb-col">
+                                        <span>FIn d'annee</span>
+                                    </th>
+                                    <th class="nk-tb-col nk-tb-col-tools">
+                                        <span>ACTION</span>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($academics as $academic)
+                                    <livewire:backend.sessions.listen-session :academic="$academic" />
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

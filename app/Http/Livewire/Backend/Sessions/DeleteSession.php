@@ -17,7 +17,8 @@ class DeleteSession extends Component
 
     public function destroy()
     {
+        sleep(6);
         $this->academic->delete();
-        $this->emit('deleteSession');
+        $this->emitTo(ListenSession::class, 'deleteSession');
     }
 }

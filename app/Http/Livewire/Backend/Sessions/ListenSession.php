@@ -13,14 +13,9 @@ class ListenSession extends Component
     public AcademicYear $academic;
 
     protected $listeners = [
-        'deleteSession' => 'newAcademic'
+        'deleteSession' => '$refresh'
     ];
-
-    public function newAcademic(): AcademicYear
-    {
-        return $this->academic;
-    }
-
+    
     public function render(): Renderable
     {
         return view('livewire.backend.sessions.listen-session');
